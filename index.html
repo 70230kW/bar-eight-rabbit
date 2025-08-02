@@ -1,283 +1,96 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth" style="scroll-padding-top: 6rem;">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bar Eight Rabbit | 埼玉・三郷のオーセンティックバー</title>
-    <meta name="description" content="日本一のバーテンダー伊藤博之が織りなす、一杯の物語。埼玉・三郷の夜に佇むオーセンティックバー「Bar Eight Rabbit」で、日常を忘れさせる特別な時間をお過ごしください。">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bar Eight Rabbit | 三郷のオーセンティックバー 日本一のバーテンダー</title>
+  <meta name="description" content="「ここは三郷ではない。」カンパリカクテルコンペ日本一のバーテンダー伊藤博之が創る、一夜の隠れ家。重厚な空間で、特別なツイストカクテルと希少なウイスキーをご堪能ください。" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'background-primary': '#1A1A1A',
+            'background-secondary': '#2C2C2E',
+            'accent-primary': '#D4AF37',
+            'text-primary': '#F2F2F7',
+            'text-secondary': '#8E8E93',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'sans-serif'],
+            'serif': ['Playfair Display', 'serif'],
+          },
+          spacing: {
+            '8': '2rem',
+          }
+        },
+        screens: {
+          'md': '768px',
+          'lg': '1024px',
+        },
+      }
+    }
+  </script>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarOrPub",
+    "name": "Bar Eight Rabbit",
+    "description": "カンパリカクテルコンペ日本一のバーテンダー伊藤博之が創る、三郷のオーセンティックバー。特別なツイストカクテルと希少なウイスキーをご堪能ください。",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "早稲田2-17-13 早稲田ビル1F",
+      "addressLocality": "三郷市",
+      "addressRegion": "埼玉県",
+      "postalCode": "341-0018",
+      "addressCountry": "JP"
+    },
+    "telephone": "+81-48-954-7970",
+    "url": "https://bar-eight-rabbit.example.com",
+    "image": "https://picsum.photos/1200/630?grayscale",
+    "priceRange": "¥5000-¥7000",
+    "servesCuisine": "Cocktails",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "19:00",
+        "closes": "04:00"
+      }
+    ],
+    "paymentAccepted": "Credit Card, PayPay",
+    "smokingAllowed": true
+  }
+  </script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome (for Icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <style>
-        /* カスタムスタイル */
-        body {
-            background-color: #121212;
-            color: #E0E0E0;
-            font-family: 'Inter', sans-serif;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Lora', serif;
-        }
-        .accent-color {
-            color: #D4AF37;
-        }
-        .bg-accent-color {
-            background-color: #D4AF37;
-        }
-        .bg-surface {
-            background-color: #1E1E1E;
-        }
-        .text-primary {
-            color: #E0E0E0;
-        }
-        .text-secondary {
-            color: #A0A0A0;
-        }
-        /* スクロールに応じたフェードインアニメーション用 */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.7.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
-<body class="antialiased">
-
-    <!-- ===== Header ===== -->
-    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="#" class="text-2xl font-serif font-bold tracking-wider">Bar Eight Rabbit</a>
-
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#" class="text-primary hover:text-[#D4AF37] transition-colors">Top</a>
-                    <a href="#" class="text-secondary hover:text-[#D4AF37] transition-colors">Concept</a>
-                    <a href="#" class="text-secondary hover:text-[#D4AF37] transition-colors">Menu</a>
-                    <a href="#" class="text-secondary hover:text-[#D4AF37] transition-colors">Bartender</a>
-                    <a href="#" class="text-secondary hover:text-[#D4AF37] transition-colors">Information</a>
-                </nav>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-primary focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-[rgba(18,18,18,0.95)] backdrop-blur-sm">
-            <nav class="flex flex-col items-center space-y-4 py-4">
-                <a href="#" class="text-primary hover:text-[#D4AF37] transition-colors">Top</a>
-                <a href="#" class="text-secondary hover:text-[#D4AF37] transition-colors">Concept</a>
-                <a href="#" class="text-secondary hover:text-[#D4AF37] transition-colors">Menu</a>
-                <a href="#" class="text-secondary hover:text-[#D4AF37] transition-colors">Bartender</a>
-                <a href="#" class="text-secondary hover:text-[#D4AF37] transition-colors">Information</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- ===== Hero Section ===== -->
-        <section class="h-screen w-full flex items-center justify-center relative bg-black">
-            <!-- Background Image -->
-            <div class="absolute inset-0 z-0">
-                <img src="https://placehold.co/1920x1080/121212/333333?text=Bar+Interior" 
-                     alt="薄暗いバーの店内" 
-                     class="w-full h-full object-cover opacity-40"
-                     loading="lazy"
-                     onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/121212/333333?text=Image+Error';">
-            </div>
-            <!-- Content -->
-            <div class="relative z-10 text-center text-white px-4">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-4">
-                    三郷の夜に、本物の隠れ家を。
-                </h1>
-                <h2 class="text-xl md:text-2xl font-medium text-primary">
-                    日本一のバーテンダーが織りなす、一杯の物語。
-                </h2>
-            </div>
-        </section>
-
-        <!-- ===== Concept Section ===== -->
-        <section class="py-20 sm:py-28 scroll-reveal">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold">Our Concept</h2>
-                    <p class="text-secondary mt-2">Bar Eight Rabbitが提供する特別な体験</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Card 1: Twist Cocktails -->
-                    <div class="bg-surface p-8 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="text-4xl accent-color mb-4"><i class="fa-solid fa-martini-glass-citrus"></i></div>
-                        <h3 class="text-2xl font-semibold mb-2">Twist Cocktails</h3>
-                        <p class="text-secondary">伝統に、革新を添えて。スタンダードカクテルから、季節のフルーツを使った創作カクテルまで、あなただけの一杯を創り上げます。</p>
-                    </div>
-                    <!-- Card 2: Rare Spirits -->
-                    <div class="bg-surface p-8 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="text-4xl accent-color mb-4"><i class="fa-solid fa-whiskey-glass"></i></div>
-                        <h3 class="text-2xl font-semibold mb-2">Rare Spirits</h3>
-                        <p class="text-secondary">世界が求める一杯が、ここに。入手困難なジャパニーズウイスキー「山崎」をはじめ、厳選されたスピリッツをご用意しています。</p>
-                    </div>
-                    <!-- Card 3: The Atmosphere -->
-                    <div class="bg-surface p-8 rounded-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
-                        <div class="text-4xl accent-color mb-4"><i class="fa-solid fa-couch"></i></div>
-                        <h3 class="text-2xl font-semibold mb-2">The Atmosphere</h3>
-                        <p class="text-secondary">日常を忘れさせる、非日常の空間。重厚なカウンターで、あるいはソファで、思い思いのゆったりとした時間をお過ごしください。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== Bartender Section ===== -->
-        <section class="py-20 sm:py-28 bg-surface scroll-reveal">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="w-full h-auto">
-                        <img src="https://placehold.co/800x1000/1E1E1E/555555?text=Hiroyuki+Ito" 
-                             alt="バーテンダー伊藤博之氏のポートレート" 
-                             class="rounded-lg shadow-2xl object-cover w-full h-full"
-                             loading="lazy"
-                             onerror="this.onerror=null;this.src='https://placehold.co/800x1000/1E1E1E/555555?text=Image+Error';">
-                    </div>
-                    <div class="text-left">
-                        <p class="accent-color mb-2 text-lg">Owner Bartender</p>
-                        <h2 class="text-4xl md:text-5xl font-bold mb-4">伊藤 博之</h2>
-                        <p class="text-xl text-primary font-semibold mb-6">カンパリグループ・カクテルグランプリ2023 <br class="hidden sm:block">日本チャンピオン</p>
-                        <p class="text-secondary leading-relaxed mb-8">
-                            「BARの無い街にBARの文化を創る」という情熱を胸に、故郷である三郷の地に店を構える。一杯のカクテルに込められた技術、知識、そして物語。そのすべてが、訪れる人々の心を豊かにする。彼の哲学と世界レベルの技に触れる、特別な夜へようこそ。
-                        </p>
-                        <a href="#" class="inline-block bg-accent-color text-[#121212] font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105">
-                            彼の哲学を知る
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== Gallery Section ===== -->
-        <section class="py-20 sm:py-28 scroll-reveal">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold">Gallery</h2>
-                    <p class="text-secondary mt-2">空間とカクテルが織りなすアート</p>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1"><img src="https://placehold.co/600x600/1E1E1E/555555?text=Cocktail+1" alt="美しいカクテル1" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" loading="lazy"></div>
-                    <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1"><img src="https://placehold.co/600x600/1E1E1E/555555?text=Cocktail+2" alt="美しいカクテル2" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" loading="lazy"></div>
-                    <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1"><img src="https://placehold.co/600x600/1E1E1E/555555?text=Interior+1" alt="店内の雰囲気1" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" loading="lazy"></div>
-                    <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1"><img src="https://placehold.co/600x600/1E1E1E/555555?text=Interior+2" alt="店内の雰囲気2" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" loading="lazy"></div>
-                    <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1"><img src="https://placehold.co/600x600/1E1E1E/555555?text=Bottle+Shelf" alt="ボトルの並ぶ棚" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" loading="lazy"></div>
-                    <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1"><img src="https://placehold.co/600x600/1E1E1E/555555?text=Counter" alt="重厚なカウンター" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" loading="lazy"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== Information Section ===== -->
-        <section class="py-20 sm:py-28 bg-surface scroll-reveal">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold">Information</h2>
-                    <p class="text-secondary mt-2">ご来店を心よりお待ちしております</p>
-                </div>
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <div class="w-full h-96 md:h-[500px] rounded-lg overflow-hidden">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3235.633519398702!2d139.8000123152623!3d35.8092289801648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60189114536eb381%3A0x7e949d0a3d467557!2z5LiJ54Sj55yM5LiJ6YOo5biC!5e0!3m2!1sja!2sjp!4v1678886400000!5m2!1sja!2sjp" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                    <div>
-                        <div class="space-y-6">
-                            <div>
-                                <h3 class="text-xl font-semibold accent-color mb-2">Address</h3>
-                                <p class="text-primary">〒341-0024 埼玉県三郷市三郷１丁目</p>
-                                <p class="text-secondary">(詳細な住所はご予約時にお伝えします)</p>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold accent-color mb-2">Open Hours</h3>
-                                <p class="text-primary">18:00 - 26:00 (L.O. 25:30)</p>
-                                <p class="text-secondary">定休日: 日曜日</p>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold accent-color mb-2">Reservation</h3>
-                                <p class="text-primary">ご予約はお電話にて承っております。</p>
-                                <a href="tel:048-XXX-XXXX" class="text-2xl font-bold text-primary hover:text-[#D4AF37] transition-colors">048-XXX-XXXX</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- ===== Footer ===== -->
-    <footer class="bg-[#101010] text-secondary py-10">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex justify-center space-x-6 mb-6">
-                <a href="#" aria-label="Instagram" class="text-2xl hover:text-[#D4AF37] transition-colors"><i class="fab fa-instagram"></i></a>
-                <!-- 他のSNSアイコンもここに追加 -->
-            </div>
-            <p class="mb-2">Bar Eight Rabbit</p>
-            <p class="text-sm">&copy; 2024 Bar Eight Rabbit. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // ===== Header Scroll Effect =====
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('bg-[rgba(18,18,18,0.8)]', 'backdrop-blur-sm', 'shadow-lg');
-                } else {
-                    header.classList.remove('bg-[rgba(18,18,18,0.8)]', 'backdrop-blur-sm', 'shadow-lg');
-                }
-            });
-
-            // ===== Mobile Menu Toggle =====
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            // ===== Scroll Reveal Animation =====
-            const revealElements = document.querySelectorAll('.scroll-reveal');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        // 一度表示されたら監視を解除する場合
-                        // observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1 // 10%見えたら発火
-            });
-
-            revealElements.forEach(el => {
-                observer.observe(el);
-            });
-        });
-    </script>
+<body class="bg-background-primary text-text-primary font-sans antialiased">
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
 </body>
 </html>
